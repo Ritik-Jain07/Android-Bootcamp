@@ -3,14 +3,17 @@ fun simpleInterest(){
     println("Calculated Simple Interest ${interest(10000,5.5,2)}")
 }
 
-fun listEmployees(){
-    val empList= mutableListOf<Pair<String,Int>>();
-    empList.add(0, Pair("Ritik",21))
-    empList.add(1,Pair("Adarsh",22))
-    empList.add(2,Pair("Ajay",45))
-    empList.add(3,Pair("Vijay",31))
+data class Employee(val name:String,val age:Int)
 
-    val filterEmp= empList.filter { it.second>30 }
+fun listEmployees(){
+    val empList: List<Employee> = listOf(
+        Employee("Ritik", 21),
+        Employee("Adarsh", 22),
+        Employee("Ajay", 45),
+        Employee("Vijay", 31)
+    )
+
+    val filterEmp= empList.filter {employee-> employee.age>30 }
 
     for (i in filterEmp){
         println("Employees name and age greater than 30 are $i")
